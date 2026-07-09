@@ -1,0 +1,36 @@
+name: ps4_lounge
+description: تطبيق إدارة صالة ألعاب بلاي ستيشن
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  provider: ^6.1.1
+  sqflite: ^2.3.0
+  path: ^1.8.3
+  intl: ^0.19.0
+  flutter_local_notifications: ^18.0.1
+  wakelock_plus: ^1.2.1
+  flutter_background_service: ^5.0.5
+  shared_preferences: ^2.2.2
+  timezone: ^0.9.4
+  http: ^1.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: Tajawal
+      fonts:
+        - asset: assets/fonts/Tajawal-Regular.ttf
+        - asset: assets/fonts/Tajawal-Bold.ttf
+          weight: 700

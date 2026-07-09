@@ -1,0 +1,47 @@
+name: Build Flutter APK (Release)
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🔧 Setup Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: 🔧 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          flutter-version: '3.44.4'
+
+      - name: 📦 Install dependencies
+        run: flutter pub get
+        working-directory: ps4_lounge
+
+      - name: 🧹 Clean build
+        run: flutter clean
+        working-directory: ps4_lounge
+
+      - name: 🏗️ Build Release APK
+        run: flutter build apk --release
+        working-directory: ps4_lounge
+
+      - name: 📤 Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-apk
+          path: ps4_lounge/build/app/outputs/flutter-apk/app-release.apk
+          if-no-files-found: error
