@@ -1,14 +1,20 @@
-gradle-wrapper.jar
-/.gradle
-/captures/
-/gradlew
-/gradlew.bat
-/local.properties
-GeneratedPluginRegistrant.java
-.cxx/
+# Gradle files
+.gradle/
+build/
 
-# Remember to never publicly share your keystore.
-# See https://flutter.dev/to/reference-keystore
+# Local configuration file (never commit this)
+local.properties
+
+# Ignore generated files (Flutter handles these)
+GeneratedPluginRegistrant.java
+
+# Keep Gradle Wrapper (Essential for GitHub Actions)
+!gradlew
+!gradlew.bat
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# Key management (Security)
 key.properties
 **/*.keystore
 **/*.jks
